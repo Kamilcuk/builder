@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 RUN set -x && \
 	apk add \
 		binutils-arm-none-eabi \
