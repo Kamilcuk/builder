@@ -26,8 +26,8 @@ RUN set -x && \
 		sdcc \
 		valgrind \
 	&& \
-	bash -c "echo 'y' | pacman -Scc >/dev/null 2>&1" && \
-	paccache -rk0 >/dev/null 2>&1 &&  \
+	echo 'y' | pacman -Scc && \
+	paccache -rk0 &&  \
 	pacman-optimize && \
 	rm -r /var/lib/pacman/sync/*
 

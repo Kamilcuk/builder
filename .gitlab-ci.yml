@@ -6,11 +6,11 @@ include:
   - template: Security/SAST.gitlab-ci.yml
   - template: Security/Secret-Detection.gitlab-ci.yml
 
-linter:
-  image: hadolint/hadolint:latest-debian
-  script:
-    - hadolint --version
-    - hadolint *.Dockerfile
+#linter:
+  #image: hadolint/hadolint:latest-debian
+  #script:
+    #- hadolint --version
+    #- hadolint *.Dockerfile
 
 .build:
   image: docker

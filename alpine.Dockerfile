@@ -1,6 +1,6 @@
 FROM alpine:latest
 RUN set -x && \
-	apk add \
+	apk add --no-cache \
 		binutils-arm-none-eabi \
 		clang \
 		cmake \
@@ -22,5 +22,5 @@ RUN set -x && \
 		rsync \
 		util-linux \
 		valgrind \
-	&& echo done
+	&& echo 'done'
 
