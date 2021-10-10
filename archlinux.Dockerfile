@@ -27,7 +27,5 @@ RUN set -x && \
 		valgrind \
 	&& \
 	echo 'y' | pacman -Scc && \
-	paccache -rk0 &&  \
-	pacman-optimize && \
 	rm -r /var/lib/pacman/sync/*
 
