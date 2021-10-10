@@ -7,17 +7,17 @@ include:
   - template: Security/Secret-Detection.gitlab-ci.yml
 
 linter:
-  image: hadolint/hadolint
+  image: hadolint/hadolint:latest-debian
   script:
     - hadolint --version
     - hadolint *.Dockerfile
 
-variables:
-  # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
-  DOCKER_HOST: tcp://docker:2376
-  DOCKER_TLS_CERTDIR: "/certs"
-default:
+.build:
   image: docker
+  variables:
+    # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
+    DOCKER_HOST: tcp://docker:2376
+    DOCKER_TLS_CERTDIR: "/certs"
   services:
     - docker:dind
   before_script:
@@ -27,10 +27,12 @@ default:
     - docker push "$CI_REGISTRY_IMAGE:$CI_JOB_NAME"
 
 alpine:
+  extends: .build
   script:
     - echo done
 
 archlinux:
+  extends: .build
   script:
     - docker tag "$CI_REGISTRY_IMAGE:$CI_JOB_NAME" "$CI_REGISTRY_IMAGE:latest"
     - docker push "$CI_REGISTRY_IMAGE:latest"

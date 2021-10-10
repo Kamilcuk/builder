@@ -9,7 +9,7 @@ RUN set -x && \
 		clang \
 		cmake \
 		cppcheck \
-		distcc
+		distcc \
 		doxygen \
 		gcc \
 		git \

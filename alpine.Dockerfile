@@ -6,7 +6,7 @@ RUN set -x && \
 		clang \
 		cmake \
 		cppcheck \
-		distcc
+		distcc \
 		doxygen \
 		gcc \
 		gcc-arm-none-eabi \
