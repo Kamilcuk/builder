@@ -1,5 +1,4 @@
-FROM archlinux
-MAINTAINER Kamil Cukrowski <kamilcukrowski@gmail.com>
+FROM archlinux:latest
 RUN set -x && \
 	pacman --noconfirm -Sy \
 		arm-none-eabi-binutils \

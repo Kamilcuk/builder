@@ -1,5 +1,4 @@
 FROM alpine
-MAINTAINER Kamil Cukrowski <kamilcukrowski@gmail.com>
 RUN set -x && \
 	apk add \
 		binutils-arm-none-eabi \
@@ -21,7 +20,7 @@ RUN set -x && \
 		openssh \
 		patch \
 		rsync \
-		util-linux
+		util-linux \
 		valgrind \
 	&& echo done
 
