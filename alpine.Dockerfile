@@ -3,6 +3,7 @@ RUN set -x && \
 	apk add --no-cache \
 		bash \
 		binutils-arm-none-eabi \
+		build-base \
 		clang \
 		cmake \
 		cppcheck \
