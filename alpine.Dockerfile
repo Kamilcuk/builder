@@ -1,6 +1,7 @@
 FROM alpine:latest
 RUN set -x && \
 	apk add --no-cache \
+		bash \
 		binutils-arm-none-eabi \
 		clang \
 		cmake \
