@@ -1,6 +1,6 @@
 FROM archlinux:latest
 RUN set -x && \
-	pacman --noconfirm -Sy \
+	pacman --noconfirm -Suy \
 		arm-none-eabi-binutils \
 		arm-none-eabi-gcc \
 		arm-none-eabi-gdb \
