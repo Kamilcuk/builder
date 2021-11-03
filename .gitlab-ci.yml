@@ -33,11 +33,16 @@ include:
         git --version &&
         rsync --version '
     - docker push "$CI_REGISTRY_IMAGE:$CI_JOB_NAME"
+  script:
+    - echo done
 
 alpine:
   extends: .build
-  script:
-    - echo done
+
+intel:
+  tags:
+    - perun
+  extends: .build
 
 archlinux:
   extends: .build
