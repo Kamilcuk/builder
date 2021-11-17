@@ -1,11 +1,6 @@
 #!/bin/bash
 set -xeuo pipefail
 
-if [[ ! -e /.dockerenv ]]; then
-	echo "error: this script is meant to be in docker" >&2
-	exit 2
-fi
-
 {
 	echo "Installing packages"
 	pacman-key --init
