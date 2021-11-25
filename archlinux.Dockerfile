@@ -1,3 +1,3 @@
 FROM archlinux:latest
-COPY ./archlinux_setup.sh /setup.sh
-RUN /setup.sh && rm /setup.sh
+COPY ./archlinux_setup.sh ./common_archlinux.sh /
+RUN bash /archlinux_setup.sh && rm /archlinux_setup.sh /common_archlinux.sh
