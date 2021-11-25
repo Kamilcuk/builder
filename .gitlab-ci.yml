@@ -42,8 +42,6 @@ alpine:
   extends: .build
 
 intel:
-  tags:
-    - perun
   extends: .build
 
 archlinux:

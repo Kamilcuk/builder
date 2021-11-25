@@ -35,6 +35,8 @@ set -xeuo pipefail
 		rsync
 		sdcc
 		valgrind
+		python-jinja
+		gcovr
 	)
 	pacman -Suy --noconfirm --needed "${pkg[@]}"
 }
