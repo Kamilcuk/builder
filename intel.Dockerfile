@@ -18,6 +18,7 @@ RUN set -x && \
 		patch \
 		m4 \
 		python3-jinja2 \
+		git \
 	&& \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
