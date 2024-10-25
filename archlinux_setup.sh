@@ -4,7 +4,6 @@ PACKAGES=(
 	sudo
 	base-devel
 	git
-	aurutils
 	arm-none-eabi-binutils
 	arm-none-eabi-gcc
 	arm-none-eabi-gdb
