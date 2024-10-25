@@ -10,7 +10,7 @@ jobs:
           - intel
           - archlinux
           - ubuntu
-    runs-on: nomadtools
+    runs-on: nomadtools mem=1000
     permissions:
       contents: read
       packages: write

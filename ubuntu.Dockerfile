@@ -1,6 +1,6 @@
 FROM ubuntu:latest
+ENV DEBIAN_FRONTEND=noninteractive
 RUN set -x && \
-	export DEBIAN_FRONTEND=noninteractive && \
 	apt-get update && \
 	apt-get install -y --no-install-recommends \
 		gcc-arm-none-eabi \
@@ -20,7 +20,6 @@ RUN set -x && \
 		openssh-client \
 		patch \
 		qemu-system-arm \
-		qemu-efi \
 		rsync \
 		sdcc \
 		valgrind \
