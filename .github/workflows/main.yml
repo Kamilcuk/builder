@@ -3,6 +3,7 @@ on:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         image:
           - alpine
@@ -20,7 +21,7 @@ jobs:
       #   with:
       #     dockerfile: ./${{matrix.image}}.Dockerfile
       - run: echo "TAG=ghcr.io/${GITHUB_REPOSITORY,,}:${{matrix.image}}" >>${GITHUB_ENV}
-      - run: docker build -f ./${{matrix.image}}.Dockerfile -t $TAG .
+      - run: docker build --pull -f ./${{matrix.image}}.Dockerfile -t $TAG .
       - run: docker run $TAG sh -s <test.sh
       - uses: docker/login-action@v1
         with:
