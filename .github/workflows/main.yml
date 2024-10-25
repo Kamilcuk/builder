@@ -1,5 +1,8 @@
 on:
   - push
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     strategy:
@@ -17,9 +20,9 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
-      # - uses: hadolint/hadolint-action@v3.1.0
-      #   with:
-      #     dockerfile: ./${{matrix.image}}.Dockerfile
+      - uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: ./${{matrix.image}}.Dockerfile
       - run: echo "TAG=ghcr.io/${GITHUB_REPOSITORY,,}:${{matrix.image}}" >>${GITHUB_ENV}
       - run: docker build --pull -f ./${{matrix.image}}.Dockerfile -t $TAG .
       - run: docker run $TAG sh -s <test.sh
